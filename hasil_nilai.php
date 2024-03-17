@@ -1,62 +1,39 @@
 <?php
-$nama = $_GET['nama'];
-$matkul = $_GET['matkul'];
-$nilai_uts = $_GET['nilai_uts'];
-$nilai_uas = $_GET['nilai_uas'];
-$nilai_tugas = $_GET['nilai_tugas'];
 
-//Buat Total Nilai (uts + uas + tugas/3)
-$total_nilai = ($nilai_uts + $nilai_uas + $nilai_tugas) / 3;
 
-//Buat Perhitungan IF Untuk Mencari Grade
-if ($total_nilai >=85){
-    $grade = "A";
-}
-elseif ($total_nilai >=70){
-    $grade = "B";
-}
-elseif ($total_nilai >=65){
-    $grade = "C";
-}
-elseif ($total_nilai >=30){
-    $grade = "D";
-}
-else {
-    $grade = "I";
+require_once 'model.php';
+
+
+if( !isset($_POST["submit"])    ){
+    header("Location: index.php");
+    exit;
 }
 
-//Buat Perhitungan SWITCHCASE ntuk Mencari Predikat
-switch ($grade){
-    case "A":
-     $predikat = "Sangat Memuaskan";
-        break;
-     case "B":
-        $predikat = "Memuaskan";
-        break;
-    case "C":
-        $predikat = "Cukup";
-        break;
-    default:
-    $predikat = "Tidak Ada";
-        break;
-}
+$proses = $_POST["submit"];
+$nama = $_POST["nama"];
+$mata_kuliah = $_POST["matakuliah"];
+$nilai_uts = $_POST["uts"];
+$nilai_uas = $_POST["uas"];
+$nilai_tugas = $_POST["tugas"];
+$nilai_akhir = ($nilai_uts + $nilai_uas + $nilai_tugas) / 3;
 
-//Buat Perhitungan IF Untuk Mencari Status LULUS/GAGAL
-if($total_nilai >=70){
-    $status = "LULUS";
-}
-else{
-    $status = "TIDAK LULUS";
-}
 
-//Cetak Hasil
-echo 'Nama:' . $nama . '<br>';
-echo 'Maatkul:' .  $matkul . '<br>';
-echo 'Nilai UTS:' . $nilai_uts . '<br>';
-echo 'Nilai UAS:' . $nilai_uas . '<br>';
-echo 'Nilai Tugas:' . $nilai_tugas . '<br>';
-echo 'Total Nilai' . $total_nilai . '<br>';
-echo 'Grade:' . $grade . '<br>';
-echo 'Predikat:' . $predikat . '<br>';
-echo 'Status:' . $status;
+echo 'Nama Siswa : '  . $nama;
+echo '<br> Mata Kuliah : ' . $mata_kuliah;
+echo '<br> Nilai UTS : ' . $nilai_uts;
+echo '<br> Nilai UAS : ' . $nilai_uas;
+echo '<br> Nilai Tugas : ' . $nilai_tugas;
+
+echo '<br> Nilai Akhir : ' . $nilai_akhir;
+echo '<br> DINYATAKAN : ' . kelulusan($nilai_akhir);
+echo '<br> GRADE : ' . grade($nilai_akhir);
+
+
+
+
+
+
+
+
+
 ?>
