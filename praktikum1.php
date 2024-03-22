@@ -11,7 +11,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>INI HALAMAN HOME</h1>
+            <h1>PRAKTIKUM</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -26,7 +26,7 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">JUDUL</h3>
+                <h3 class="card-title">Praktikum 1</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -38,7 +38,40 @@
                 </div>
               </div>
               <div class="card-body">
-                ..PINDAHKAN SCRIPT PRAKTIKUM/TUGAS..
+                
+              <?php 
+// definisikan variabel user
+$nama = 'Rosalie Naurah';
+$umur = 13;
+$berat = 22.4;
+
+echo "Nama: $nama";
+echo '<br>';
+
+echo 'Nama :   $nama';
+echo '<br/>Umur : ' . $umur.' Tahun';
+echo '<br/>Berat : '.$berat.' Kg';
+
+echo "<br/>Hello $nama Apakabar";
+
+echo "<br>";
+
+// definisikan variabel system
+echo 'Dokumen Root '.$_SERVER["DOCUMENT_ROOT"];
+echo '<br/>Nama File '.$_SERVER["PHP_SELF"];
+
+echo "<br>";
+
+// definisikan variabel konstanta
+// define: untuk memanggil variabel konstanta
+define('PELAJARAN', 'matematika');
+
+echo PELAJARAN;
+?>
+
+
+
+
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
